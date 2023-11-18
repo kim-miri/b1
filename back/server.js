@@ -13,7 +13,13 @@ const app = express();
 app.use(express.json());
 
 // 모든 도메인에서의 요청을 허용
-app.use(cors());
+// CORS 설정
+const corsOptions = {
+  origin: "https://web-react-jvpb2alnzpcko1.sel5.cloudtype.app", // 허용할 출처
+  optionsSuccessStatus: 200, // 프리플라이트 요청에 대한 응답 상태 코드
+};
+
+app.use(cors(corsOptions));
 
 // SHA 알고리즘
 app.use(
